@@ -13,7 +13,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <!-- My CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
@@ -29,22 +29,23 @@
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'index' %}">View Collection</a></li>
+                    <li><a href="{% url 'vinyls_create' %}">Add a Vinyl</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+    
+    
+    <main class="container">
+        {% block content %} 
+        {% endblock %}
+    </main>
+    
+    <footer class="page-footer">
+        <div class="right">
+            All Rights Reserved, &copy; 2022 VINT &nbsp;
+        </div>
+    </footer>
+    
 </body>
-
-
-<main class="container">
-    {% block content %} 
-    {% endblock %}
-</main>
-
-<footer class="page-footer">
-    <div class="right">
-        All Rights Reserved, &copy; 2022 VINT &nbsp;
-    </div>
-</footer>
-
 </html>
