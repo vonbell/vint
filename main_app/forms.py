@@ -1,7 +1,12 @@
 from django.forms import ModelForm
-from .models import Vinyl
+from .models import Vinyl, Photo
 
 class VinylForm(ModelForm):
     class Meta:
         model = Vinyl
-        fields = ('release_date', 'genre')
+        fields = ('artist', 'album', 'release_date', 'genre', 'description')
+
+# class PhotoForm(ModelForm):
+#     class Meta:
+#         model = Photo
+#         fields = ('url')

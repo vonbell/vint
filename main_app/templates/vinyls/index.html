@@ -1,16 +1,34 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Your Collection</h1>
+<h1>Your collection</h1>
 
 {% for vinyl in vinyls %}
-<div class="card">
-    <a href="{% url 'detail' vinyl.id %}">
-        <div class="card-content">
-            <span class="card-title">{{ vinyl.album }}</span>
-            <p>{{ vinyl.artist }}</p>
-            <p>{{ vinyl.release_date }}</p>
+<div class="col s6 m8 offset-m2 l6 offset-l3">
+    <div class="card hoverable">
+        <div class="row valign-wrapper">
+
+            <div class="col s2">
+                {% for photo in vinyl.photo_set.all %}
+                <a href="{% url 'detail' vinyl.id %}">
+                    <img class="responsive-img" src="{{ photo.url }}" alt="{{ vinyl.album }}">
+                </a>
+                {% empty %}
+                <p>No Photo Uploaded</p>
+                {% endfor %}
+            </div>
+
+
+
+            <div class="col s10">
+                <a href="{% url 'detail' vinyl.id %}">
+                    <div class="card-content white-text">
+                        <span class="card-title"><strong>{{ vinyl.album }}</strong></span>
+                        <p class="grey-text">{{ vinyl.artist }}</p>
+                    </div>
+                </a>
+            </div>
         </div>
-    </a>
+    </div>
 </div>
 {% endfor %} 
 

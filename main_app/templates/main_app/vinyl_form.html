@@ -16,6 +16,29 @@
     <input class="btn green" type="submit" value="{% if object %} Edit {% else %} Add {% endif %}">
 </form>
 
+<!-- <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="file" name="photo-file">
+    <br>
+    <br>
+    <input class="btn green" type="submit" value="{% if object %} Edit {% else %} Add {% endif %}">
+</form> -->
+
+<!-- <form 
+    action="" 
+    method="POST" 
+    enctype="multipart/form-data"
+    class="card-panel">
+    {% csrf_token %}
+    <input type="file" name="photo-file">
+    <br>
+    <br>
+    <input type="submit" value="Upload Photo" class="btn green">
+</form> -->
+
 <script>
     var dateEl = document.getElementById('id_release_date');
     M.Datepicker.init(dateEl, {
