@@ -4,4 +4,4 @@ from .models import Vinyl
 class VinylForm(ModelForm):
     class Meta:
         model = Vinyl
-        fields = ('release_date')
+        fields = ('release_date', 'genre')

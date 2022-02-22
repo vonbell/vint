@@ -21,4 +21,4 @@ def vinyls_detail(request, vinyl_id):
 
 class VinylCreate(CreateView):
     model = Vinyl
-    fields = ('artist', 'album', 'release_date', 'description')
+    fields = ('artist', 'album', 'release_date', 'genre', 'description')
