@@ -22,3 +22,11 @@ def vinyls_detail(request, vinyl_id):
 class VinylCreate(CreateView):
     model = Vinyl
     fields = ('artist', 'album', 'release_date', 'genre', 'description')
+
+class VinylUpdate(UpdateView):
+    model = Vinyl
+    fields = ('release_date', 'genre', 'description')
+
+class VinylDelete(DeleteView):
+    model = Vinyl
+    success_url = '/vinyls/'

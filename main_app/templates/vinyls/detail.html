@@ -10,6 +10,11 @@
                 <hr>
                 <p>Description: {{ vinyl.description }}</p>
             </div>
+
+            <div class="card-action">
+                <a href="{% url 'vinyls_update' vinyl.id %}">Update</a>
+                <a href="{% url 'vinyls_delete' vinyl.id %}">Remove</a>
+            </div>
         </div>
     </div>
 </div>

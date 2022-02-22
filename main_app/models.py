@@ -41,7 +41,7 @@ class Vinyl(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.artist
+        return self.album
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'vinyl_id': self.id})
