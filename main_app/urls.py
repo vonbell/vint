@@ -10,4 +10,5 @@ urlpatterns = [
     path('vinyls/<int:pk>/update/', views.VinylUpdate.as_view(), name='vinyls_update'),
     path('vinyls/<int:pk>/delete/', views.VinylDelete.as_view(), name='vinyls_delete'),
     path('vinyls/<int:vinyl_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('accounts/signup/', views.signup, name='signup')
 ]

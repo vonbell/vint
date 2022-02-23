@@ -17,19 +17,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
-<body>
-    <header class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <ul>
+<body id="body-homepage">
+    <header class="navbar-fixed grey darken-4">
+        <nav class="grey darken-4">
+            <div class="nav-wrapper grey darken-4 container" id="base-nav">
+                <ul class="left">
                     <li>
-                        <a href="/" class="left brand-logo">&nbsp;&nbsp;VINT</a>
+                        <a href="/" class="left brand-logo"><img src="{% static 'images/vint_word.svg' %}" alt="logo" class="responsive-img" id="vint_word"></a>
+                        <!-- <svg><use class="vint_word" xlink:href="#vint_word" href="#vint_word"></use></svg> -->
+                        <!-- <a href="/"><img src="{% static 'images/vint_logo_w_name.svg' %}" alt="logo" style="height: 70px;" class="circle responsive-img" id="logo-image"></a> -->
+                        <!-- <a href="/" class="left brand-logo">&nbsp;VINT&nbsp;</a> -->
                     </li>
                 </ul>
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'index' %}">View Collection</a></li>
                     <li><a href="{% url 'vinyls_create' %}">Add a Vinyl</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li>|</li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -41,7 +51,7 @@
         {% endblock %}
     </main>
     
-    <footer class="page-footer">
+    <footer class="page-footer grey darken-4">
         <div class="right">
             All Rights Reserved, &copy; 2022 VINT &nbsp;
         </div>

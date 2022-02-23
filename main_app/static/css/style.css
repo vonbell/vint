@@ -3,6 +3,7 @@
     margin: 0;
 }
 
+
 body {
     font-family: sans-serif, Helvetica, Arial;
     color: whitesmoke;
@@ -10,7 +11,11 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background: url('../images/home_background.svg') no-repeat;
+    background-size: cover;
+    height: 100%;
 }
+
 
 #img-detail {
     display: flex;
@@ -22,9 +27,9 @@ main {
     flex-grow: 1;
 }
 
-header {
+/* header {
     background-color: #616161;
-}
+} */
 
 footer {
     background-color: #616161;
@@ -38,4 +43,13 @@ footer {
 
 #album-detail {
     font-size: 12vh;
+}
+
+input {
+    color: whitesmoke;
+}
+
+#home-content {
+    color: rgb(223,78,86);
+    position: relative;
 }
