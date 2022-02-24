@@ -10,8 +10,8 @@ html, body
 {
     height: 100%;
 }
+
 #body-homepage {
-    /* background: url('../images/home_background.svg) no-repeat; */
     background: url('../images/home_background.svg') no-repeat;
     background-size: cover;
     position: relative;
@@ -28,7 +28,6 @@ body {
 }
 
 main {
-    /* flex: 1 0 auto; */
     flex-grow: 1;
 }
 
@@ -40,7 +39,6 @@ footer {
 }
 
 .btn {
-    /* background-color: rgb(223,78,86); */
     background-color: rgb(30,230,140);
     color: rgb(79,83,169);
     border-radius: 40px;
@@ -69,26 +67,10 @@ footer {
 /*                          Index */
 /* ============================================================================================ */
 
-/* #index-photo-div {
-    position: relative;
-    min-width: 100%;
-} */
-
-/* #index-photo {
-    position: absolute;
-    min-width: 100%;
-} */
 
 /* ============================================================================================ */
 /*                          Detail */
 /* ============================================================================================ */
-
-/* #img-detail-container {
-    position: relative;
-    height: 50%;
-    max-height: 50%;
-    max-width: 50%;
-} */
 
 #detail-img {
     margin-top: 15%;
@@ -111,9 +93,13 @@ hr {
     margin-top: 3rem;
 }
 
-/* #update-detail {
-    margin-right: 3px;
-} */
+#update-remove {
+    margin-top: 1rem;
+}
+
+.update-remove {
+    color: rgb(30,230,140);
+}
 
 /* ============================================================================================ */
 /*                          Forms */

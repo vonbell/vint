@@ -1,20 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
-
-
 <div class="row container" id="all-detail-content">
     <!-- Vinyl Image -->
     <div class="col s6" id="img-detail-container">
         {% for photo in vinyl.photo_set.all %}
         <div class="card" id="detail-img">
                 <img class="responsive-img" src="{{ photo.url }}" alt="{{ vinyl.album }}">
-                <!-- <img class="responsive-img z-depth-5" id="img-detail" src="{{ photo.url }}" alt="{{ vinyl.album }}"> -->
         </div>
         {% empty %}
         <p class="teal-text center-align">No Photos Uploaded</p>
         <!-- <p class="card teal-text center-align">No Photos Uploaded</p> -->
         {% endfor %}
-        <div>
+        <div class="row">
             <form 
                 action="{% url 'add_photo' vinyl.id %}" 
                 method="POST" 
@@ -43,32 +40,13 @@
         </div>
     
         <!-- Update, Remove, Photo -->
-        <div class="card-action">
-            <a href="{% url 'vinyls_update' vinyl.id %}" id="update-detail">Update  |  </a>
-            <a href="{% url 'vinyls_delete' vinyl.id %}">Remove</a>
-            <!-- <form 
-                action="{% url 'add_photo' vinyl.id %}" 
-                method="POST" 
-                enctype="multipart/form-data"
-                >
-                {% csrf_token %}
-                <label class="file">
-                    <input type="file" name="photo-file">
-                    <span class="file-custom"></span>
-                </label>
-                <input type="submit" value="Upload Photo" class="btn">
-            </form> -->
+        <div class="card-action" id="update-remove">
+            <a href="{% url 'vinyls_update' vinyl.id %}" class="update-remove">Update  |  </a>
+            <a href="{% url 'vinyls_delete' vinyl.id %}" class="update-remove">Remove</a>
         </div>
     </div>
 
 </div>
-
-<!-- Photo Upload -->
-<!-- <div class="row">
-
-    <div class="col s6">
-    </div>
-</div> -->
 
 
 {% endblock %}
