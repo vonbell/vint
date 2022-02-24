@@ -1,32 +1,66 @@
 {% extends 'base.html' %} {% block content %}
 
+<style>
+    @media screen and (max-width: 768px) {
+        #row-div-large {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        #row-div-small {
+            display: none;
+        }
+    }
+</style>
+
 <h1>Your collection</h1>
 
 {% for vinyl in vinyls %}
-<div class="col s6 m8 offset-m2 l6 offset-l3">
+<div class="col s12 m8 offset-m2 l6 offset-l3">
     <div class="card hoverable">
-        <div class="row valign-wrapper">
-
-            <div class="col s2">
+        <div class="row valign-wrapper" id="row-div-large">
+            
+            <div class="col s2" id="index-photo-div">
                 {% for photo in vinyl.photo_set.all %}
                 <a href="{% url 'detail' vinyl.id %}">
-                    <img class="responsive-img" src="{{ photo.url }}" alt="{{ vinyl.album }}">
+                    <img class="responsive-img" id="index-photo" src="{{ photo.url }}" alt="{{ vinyl.album }}">
                 </a>
                 {% empty %}
                 <p>No Photo Uploaded</p>
                 {% endfor %}
             </div>
 
-
-
-            <div class="col s10">
+            <div class="col s10" id="index-info-div">
                 <a href="{% url 'detail' vinyl.id %}">
-                    <div class="card-content white-text">
+                    <div class="card-content white-text" id="index-info">
                         <span class="card-title"><strong>{{ vinyl.album }}</strong></span>
                         <p class="grey-text">{{ vinyl.artist }}</p>
                     </div>
                 </a>
             </div>
+
+        </div>
+        <div class="row valign-wrapper" id="row-div-small">
+
+            <div class="col s4" id="index-photo-div">
+                {% for photo in vinyl.photo_set.all %}
+                <a href="{% url 'detail' vinyl.id %}">
+                    <img class="responsive-img" id="index-photo" src="{{ photo.url }}" alt="{{ vinyl.album }}">
+                </a>
+                {% empty %}
+                <p>No Photo Uploaded</p>
+                {% endfor %}
+            </div>
+
+            <div class="col s8" id="index-info-div">
+                <a href="{% url 'detail' vinyl.id %}">
+                    <div class="card-content white-text" id="index-info">
+                        <span class="card-title"><strong>{{ vinyl.album }}</strong></span>
+                        <p class="grey-text">{{ vinyl.artist }}</p>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </div>
 </div>

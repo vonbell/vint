@@ -1,50 +1,74 @@
 {% extends 'base.html' %} {% block content %}
 
 
-<div class="row">
-    <div class="col s6">
+
+<div class="row container" id="all-detail-content">
+    <!-- Vinyl Image -->
+    <div class="col s6" id="img-detail-container">
         {% for photo in vinyl.photo_set.all %}
-        <div class="col s6">
-            <img class="responsive-img z-depth-5" id="img-detail" src="{{ photo.url }}" alt="{{ vinyl.album }}">
+        <div class="card" id="detail-img">
+                <img class="responsive-img" src="{{ photo.url }}" alt="{{ vinyl.album }}">
+                <!-- <img class="responsive-img z-depth-5" id="img-detail" src="{{ photo.url }}" alt="{{ vinyl.album }}"> -->
         </div>
         {% empty %}
-        <div class="card teal-text center-align">No Photos Uploaded</div>
+        <p class="teal-text center-align">No Photos Uploaded</p>
+        <!-- <p class="card teal-text center-align">No Photos Uploaded</p> -->
         {% endfor %}
+        <div>
+            <form 
+                action="{% url 'add_photo' vinyl.id %}" 
+                method="POST" 
+                enctype="multipart/form-data"
+                >
+                {% csrf_token %}
+                <label class="file">
+                    <input type="file" name="photo-file">
+                    <span class="file-custom"></span>
+                </label>
+                <input type="submit" value="Upload Photo" class="btn">
+            </form>
+        </div>
     </div>
 
+
+
+    <!-- Album information -->
     <div class="col s6">
         <div class="card-content">
             <h4 class="card-title" id="album-detail"><strong>{{ vinyl.album }}</strong></h4>
             <h6><strong>{{ vinyl.artist }}</strong></h6>
             <p>{{ vinyl.get_genre_display }} ᛫ {{ vinyl.release_date }}</p>
             <hr>
-            <p>Description: {{ vinyl.description }}</p>
+            <p>Description:  {{ vinyl.description }}</p>
         </div>
     
+        <!-- Update, Remove, Photo -->
         <div class="card-action">
-            <a href="{% url 'vinyls_update' vinyl.id %}">Update</a>
+            <a href="{% url 'vinyls_update' vinyl.id %}" id="update-detail">Update  |  </a>
             <a href="{% url 'vinyls_delete' vinyl.id %}">Remove</a>
+            <!-- <form 
+                action="{% url 'add_photo' vinyl.id %}" 
+                method="POST" 
+                enctype="multipart/form-data"
+                >
+                {% csrf_token %}
+                <label class="file">
+                    <input type="file" name="photo-file">
+                    <span class="file-custom"></span>
+                </label>
+                <input type="submit" value="Upload Photo" class="btn">
+            </form> -->
         </div>
     </div>
 
 </div>
-<div class="row">
+
+<!-- Photo Upload -->
+<!-- <div class="row">
 
     <div class="col s6">
-
-        <form 
-            action="{% url 'add_photo' vinyl.id %}" 
-            method="POST" 
-            enctype="multipart/form-data"
-            class="card-panel">
-            {% csrf_token %}
-            <input type="file" name="photo-file">
-            <br>
-            <br>
-            <input type="submit" value="Upload Photo" class="btn green">
-        </form>
     </div>
-</div>
+</div> -->
 
 
 {% endblock %}

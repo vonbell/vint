@@ -11,40 +11,17 @@
 <form action="" method="post">
     {% csrf_token %}
     <table>
-        {{ form.as_table }}
+        {{ form.as_p }}
     </table>
-    <input class="btn green" type="submit" value="{% if object %} Edit {% else %} Add {% endif %}">
+    <input class="btn" type="submit" value="{% if object %} Edit {% else %} Add {% endif %}">
 </form>
-
-<!-- <form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="file" name="photo-file">
-    <br>
-    <br>
-    <input class="btn green" type="submit" value="{% if object %} Edit {% else %} Add {% endif %}">
-</form> -->
-
-<!-- <form 
-    action="" 
-    method="POST" 
-    enctype="multipart/form-data"
-    class="card-panel">
-    {% csrf_token %}
-    <input type="file" name="photo-file">
-    <br>
-    <br>
-    <input type="submit" value="Upload Photo" class="btn green">
-</form> -->
 
 <script>
     var dateEl = document.getElementById('id_release_date');
     M.Datepicker.init(dateEl, {
         format: 'mmmm dd, yyyy',
         defaultDate: new Date(),
-        minDate: new Date('January 1, 1990'),
+        // minDate: new Date('January 1, 1990'),
         maxDate: new Date(),
         yearRange: 90,
         setDefaultDate: true,

@@ -1,25 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&family=Raleway:wght@800&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
+html, body
+{
+    height: 100%;
+}
+#body-homepage {
+    /* background: url('../images/home_background.svg) no-repeat; */
+    background: url('../images/home_background.svg') no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+}
 
 body {
-    font-family: sans-serif, Helvetica, Arial;
+    font-family: 'Raleway', sans-serif;
     color: whitesmoke;
     background-color: rgb(18,17,18);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: url('../images/home_background.svg') no-repeat;
-    background-size: cover;
-    height: 100%;
-}
-
-
-#img-detail {
-    display: flex;
-    align-content: center;
 }
 
 main {
@@ -27,29 +32,152 @@ main {
     flex-grow: 1;
 }
 
-/* header {
-    background-color: #616161;
-} */
-
 footer {
+    margin-bottom: 0;
     background-color: #616161;
     padding-top: 0;
     text-align: right;
 }
+
+.btn {
+    /* background-color: rgb(223,78,86); */
+    background-color: rgb(30,230,140);
+    color: rgb(79,83,169);
+    border-radius: 40px;
+    width: 150px;
+    font-size: x-small;
+    margin: 10px 0 0 0;
+    color: whitesmoke;
+}
+
+/* ============================================================================================ */
+/*                          About */
+/* ============================================================================================ */
+
+#linkedin {
+    border-radius: 8px;
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+}
+
+#developers {
+    margin-top: 100px;
+}
+
+/* ============================================================================================ */
+/*                          Index */
+/* ============================================================================================ */
+
+/* #index-photo-div {
+    position: relative;
+    min-width: 100%;
+} */
+
+/* #index-photo {
+    position: absolute;
+    min-width: 100%;
+} */
+
+/* ============================================================================================ */
+/*                          Detail */
+/* ============================================================================================ */
+
+/* #img-detail-container {
+    position: relative;
+    height: 50%;
+    max-height: 50%;
+    max-width: 50%;
+} */
+
+#detail-img {
+    margin-top: 15%;
+} 
 
 .card {
     background-color: rgb(18,17,18);
 }
 
 #album-detail {
-    font-size: 12vh;
+    font-size: 9vh;
 }
+
+hr {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+#all-detail-content {
+    margin-top: 3rem;
+}
+
+/* #update-detail {
+    margin-right: 3px;
+} */
+
+/* ============================================================================================ */
+/*                          Forms */
+/* ============================================================================================ */
 
 input {
     color: whitesmoke;
 }
 
-#home-content {
+textarea {
+    color: whitesmoke;
+    height: 150px;
+}
+
+/* ============================================================================================ */
+/*                          Home */
+/* ============================================================================================ */
+
+#home-container {
     color: rgb(223,78,86);
     position: relative;
+    min-height: 100%;
+}
+
+#home-content {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#home-button {
+    background-color: rgb(223,78,86);
+    color: rgb(79,83,169);
+    border-radius: 40px;
+    width: 200px;
+    margin: 50px 0 0 0;
+}
+
+/* ============================================================================================ */
+/*                          @media */
+/* ============================================================================================ */
+
+@media (max-width: 768px) {
+    #body-homepage {
+        min-height: 50vh;
+        min-width: calc(1.525rem + 3.3vw);
+    }
+
+    .home-h1 {
+        font-size: calc(1.525rem + 3.3vw);
+    }
+
+    #album-detail {
+        font-size: calc(1.525rem + 3.3vw);
+    }
+
+    #index-info {
+        font-size: smaller;
+    }
+
+    footer {
+        margin-bottom: 0;
+    }
 }
