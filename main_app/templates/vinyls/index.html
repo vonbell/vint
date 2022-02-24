@@ -13,6 +13,8 @@
     }
 </style>
 
+
+{% if object %}
 <h1>Your collection</h1>
 
 {% for vinyl in vinyls %}
@@ -64,7 +66,16 @@
         </div>
     </div>
 </div>
-{% endfor %} 
+{% endfor %}
+
+{% else %}
+<div class="container col s12 m6" id="collection-btn-container">
+    <h1 id="add-collection">Add to Your Collection</h1>
+    <div class="center-align" id="collection-btn-content">
+        <a href="{% url 'vinyls_create' %}" class="btn-large" id="collection-btn">Add</a>
+    </div>
+</div>
+{% endif %}
 
 
 
