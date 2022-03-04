@@ -1,9 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
 <style>
+    @media screen and (max-width: 1394px) {
+        #collection-btn {
+            margin-top: 4rem;
+        }
+    }
     @media screen and (max-width: 768px) {
         #row-div-large {
             display: none;
+        }
+        #collection-btn {
+            margin-top: 0;
         }
     }
     @media screen and (min-width: 768px) {
@@ -11,6 +19,15 @@
             display: none;
         }
     }
+
+    #collection-h1-content {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    top: 28%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
 </style>
 
 
@@ -70,13 +87,14 @@
 
 {% else %}
 <div class="container col s12 m6" id="collection-btn-container">
-    <h1 class="center-align" id="add-collection">Add to Your Collection</h1>
+    <div class="center-align" id="collection-h1-content">
+        <h1 class="home-h1" id="add-collection">Add to Your Collection</h1>
+    </div>
     <div class="center-align" id="collection-btn-content">
         <a href="{% url 'vinyls_create' %}" class="btn-large" id="collection-btn">Add</a>
     </div>
 </div>
 {% endif %}
-
 
 
 {% endblock %}
