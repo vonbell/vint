@@ -28,15 +28,9 @@
                 </ul>
                 <ul class="right col s12 m6">
                     <li><a href="{% url 'about' %}">About</a></li>
-                    {% if user.is_authenticated %}
+                    <li>|</li>
                     <li><a href="{% url 'index' %}">View Collection</a></li>
                     <li><a href="{% url 'vinyls_create' %}">Add a Vinyl</a></li>
-                    <li><a href="{% url 'logout' %}">Log Out</a></li>
-                    {% else %}
-                    <li>|</li>
-                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                    <li><a href="{% url 'login' %}">Log In</a></li>
-                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -47,7 +41,7 @@
         <div class="center-align" id="home-content">
             <h1 class="home-h1">Collecting is everything</h1>
             <p>Millions of records. What are yours? </p>
-            <a href="{% url 'signup' %}" class="btn-large" id="home-button">GET VINT FREE</a>
+            <a href="{% url 'vinyls_create' %}" class="btn-large" id="home-button">GET VINT FREE</a>
         </div>
     </div>
 
